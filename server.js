@@ -37,6 +37,16 @@ app.get("/db/doctors", (request, response) => {
   console.log("someone requested the data");
   response.send(db.doctors);
 });
+app.get("/db/doctors/:id", (request, response) => {
+  const { id } = request.params;
+
+  const finding = db.doctors.find((el) => {
+    if (el.id.toString() === id) {
+      return el;
+    }
+  });
+  response.send(finding);
+});
 
 const port = 4000;
 
