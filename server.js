@@ -1,6 +1,8 @@
 const express = require("express");
+const cors = require("cors");
 const db = require("./data.json");
 const app = express();
+app.use(cors());
 app.get("/", (request, response) => {
   console.log("someone requested the data");
   const favorite = `
